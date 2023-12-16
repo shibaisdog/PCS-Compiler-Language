@@ -1,0 +1,25 @@
+{
+  "name": "pcs",
+  "displayName": "PCS",
+  "description": "PCS",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "pcs",
+      "aliases": ["PCS", "pcs"],
+      "extensions": [".sp"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "pcs",
+      "scopeName": "source.pcs",
+      "path": "./syntaxes/pcs.tmLanguage.json"
+    }]
+  }
+}

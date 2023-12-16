@@ -1,0 +1,35 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "PCS",
+	"patterns": [
+		{"include": "#reserved-words"},
+		{"include": "#keywords"},
+		{"include": "#numbers"},
+		{"include": "#strings"}
+	],
+	"repository": {
+		"numbers": {
+			"patterns": [{"name": "keyword.other.unit.pcs","match": "\\b(-?[0-9][0-9\\.]+;?)\\b"}]
+		},
+		"keywords": {
+			"name": "entity.name.class",
+			"begin": "#",
+			"end": "\n",
+			"patterns": [{"name": "comment.line","match": "\\\\."}]
+		},
+		"reserved-words" : {
+			"patterns": [
+			    {"name": "entity.name.function.member.pcs","match": "\\b(print)\\b"},
+				{"name": "keyword.control.pcs","match": "\\b(if|else| and | or |not |import|return)\\b"},
+				{"name": "keyword.other","match": "\\b(true|false)\\b"}
+		    ]
+		},
+		"strings": {
+			"name": "string.quoted.double.pcs",
+			"begin": "\"|'|`",
+			"end": "\"|'|`",
+			"patterns": [{"name": "constant.character.escape.pcs","match": "\\\\."}]
+		}
+	},
+	"scopeName": "source.pcs"
+}

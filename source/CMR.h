@@ -8,6 +8,6 @@
 #include "./compiler/compiler.h"
 using namespace std;
 class CMR {
-    public: static void comfile(string path,string file);
-    public: static void run(string file);
+    public: static void exe_comfile(string path,string out,string file);
+    public: static void cpp_comfile(string path,string out,string file);
 };

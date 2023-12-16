@@ -5,6 +5,6 @@
 #include <string>
 #include <regex>
 using namespace std;
-class _const {
+class CC {
     public: static string aft(string line);
 };

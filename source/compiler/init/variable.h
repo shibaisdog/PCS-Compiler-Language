@@ -4,7 +4,8 @@
 #include <iostream>
 #include <string>
 #include <regex>
+#include <list>
 using namespace std;
-class _let {
-    public: static string aft(string line);
+class _variable {
+    public: static string* aft(list<string> Variable_Name,string line);
 };
