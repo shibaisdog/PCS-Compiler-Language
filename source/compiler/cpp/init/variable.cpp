@@ -1,11 +1,12 @@
 #include "variable.h"
 #include "../type/CK.h"
-#include "../compiler.h"
+#include "../../compiler.h"
 using namespace std;
 string* _variable::aft(list<string> Variable_Name,string line) {
     string* ret = new string[2];
     ret[0] = line;
     ret[1] = "<None>";
+    string intext = line;
     int index = line.find("=");
     if (index != std::string::npos && line.find("//") == std::string::npos) {
         int sp = 0;

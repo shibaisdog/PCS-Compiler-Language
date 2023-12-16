@@ -19,15 +19,16 @@
 		},
 		"reserved-words" : {
 			"patterns": [
-			    {"name": "entity.name.function.member.pcs","match": "\\b(print)\\b"},
-				{"name": "keyword.control.pcs","match": "\\b(if|else| and | or |not |import|return)\\b"},
+				{"name": "keyword.other","match": "\\b(int|float|string|bool|void)\\b"},
+			    {"name": "entity.name.function.member.pcs","match": "\\b(print|main)\\b"},
+				{"name": "keyword.control.pcs","match": "\\b(if|else| and | or |not |import|return|def|new)\\b"},
 				{"name": "keyword.other","match": "\\b(true|false)\\b"}
 		    ]
 		},
 		"strings": {
 			"name": "string.quoted.double.pcs",
-			"begin": "\"|'|`",
-			"end": "\"|'|`",
+			"begin": "\"|'",
+			"end": "\"|'",
 			"patterns": [{"name": "constant.character.escape.pcs","match": "\\\\."}]
 		}
 	},

@@ -15,41 +15,55 @@
 
 
 # 02 - 파일 세팅하기
-int main() {
-
-}
+def int main():
 
 
 # 03 - 모듈 불러오기
 import time.h # time.h 라는 이름의 모듈을 불러옵니다
-int main() {
-
-}
+def int main():
 
 
 # 04 - 값 출력하기
-int main() {
+def int main():
     Int1 = 10
     Int2 = 20
     print(Int1) #10
     print(Int2) #20
     print(Int1,Int2) #10 20
-}
 
 
 # 05 - 변수 지정하기
-int main() {
+def int main():
     Int = 10               #Int 라는 이름을 가진 int 변수를 지정하고 값은 10으로 지정합니다
     Float = 10.1           #Float 라는 이름을 가진 float 변수를 지정하고 값은 10.1으로 지정합니다
     String = "Hello World" #String 라는 이름을 가진 string 변수를 지정하고 값은 Hello World으로 지정합니다
     print(String)          #Hello World
     String = "Bye World"   #String 라는 이름을 가진 변수가 이미 있으므로 값을 Bye World 으로 변경합니다
     print(String)          #Bye World
-}
+    BO_true = true         #BO_true 라는 이름을 가진 bool 변수를 지정하고 값은 true으로 지정합니다
+    BO_false = false       #BO_false 라는 이름을 가진 bool 변수를 지정하고 값은 false으로 지정합니다
+    print(BO_true)         #1
+    print(BO_false)        #0
 
 
-# 06 - 배열 선언하기
-int main() {
+# 06 - 함수 선언하기
+def <- 함수선언
+def <return 했을때 값 타입> <함수명>() :
+#예시
+def void pr_string():     #출력타입이 void 를 가진 pr_string 변수를 지정합니다
+    print("Hello World")  #Hello World를 출력합니다
+def int main():
+    pr_string()           #Hello World
+
+
+def int add(int a,int b): #출력타입이 int 를 가진 add 변수를 지정합니다 이때 인자값은 a 랑 b 를 받는데 각각 타입은 int,int 입니다
+    return a + b          #a랑b값을 받은뒤에 더한뒤에 return
+def int main():
+    print(add(1,4))       #5
+
+
+# 07 - 배열 선언하기
+def int main():
     call = new int[5] #call 이름을 가진 auto 변수에 배열 5개를 선언합니다
     call[0] = 10      #배열 첫번째값을 10으로 지정합니다
     call[1] = 50      #배열 첫번째값을 50으로 지정합니다
@@ -57,4 +71,3 @@ int main() {
     call[3] = 40      #배열 첫번째값을 40으로 지정합니다
     call[4] = 20      #배열 첫번째값을 20으로 지정합니다
     print(call[0],call[1],call[2],call[3],call[4]) #10 50 90 40 20
-}
