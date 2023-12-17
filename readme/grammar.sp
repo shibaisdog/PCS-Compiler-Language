@@ -80,18 +80,26 @@ def int main():
 
 # 08 - 배열 선언하기
 def int main():
-    call = new int[5] #call 이름을 가진 auto 변수에 배열 5개를 선언합니다
-    call[0] = 10      #배열 첫번째값을 10으로 지정합니다
-    call[1] = 50      #배열 첫번째값을 50으로 지정합니다
-    call[2] = 90      #배열 첫번째값을 90으로 지정합니다
-    call[3] = 40      #배열 첫번째값을 40으로 지정합니다
-    call[4] = 20      #배열 첫번째값을 20으로 지정합니다
+    call = Array.int(5)    #call 이름을 가진 auto 변수에 배열 5개를 선언합니다
+    call[0] = 10           #배열 첫번째값을 10으로 지정합니다
+    call[1] = 50           #배열 첫번째값을 50으로 지정합니다
+    call[2] = 90           #배열 첫번째값을 90으로 지정합니다
+    call[3] = 40           #배열 첫번째값을 40으로 지정합니다
+    call[4] = 20           #배열 첫번째값을 20으로 지정합니다
     print(call[0],call[1],call[2],call[3],call[4]) #10 50 90 40 20
+
+    call = Array.string(5) #call 이름을 가진 auto 변수에 배열 5개를 선언합니다
+    call[0] = "Hello"      #배열 첫번째값을 "Hello"으로 지정합니다
+    call[1] = "World"      #배열 첫번째값을 "World"으로 지정합니다
+    call[2] = "oh~"        #배열 첫번째값을 "oh~"으로 지정합니다
+    call[3] = "bye"        #배열 첫번째값을 "bye"으로 지정합니다
+    call[4] = "World"      #배열 첫번째값을 "World"으로 지정합니다
+    print(call[0],call[1],call[2],call[3],call[4]) #Hello World oh~ bye World
 
 
 # 09 - 반복문 선언하기
 def int main():
-    call = new int[5]
+    call = Array.int(5)
     for i=0;i<sizeof(call);i++:
         print(call[i])
     return 0
