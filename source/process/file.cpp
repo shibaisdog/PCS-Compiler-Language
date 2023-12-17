@@ -1,5 +1,20 @@
 #include "file.h"
 using namespace std;
+list<string> file::NPread(string filename) {
+    string line;
+    list<string> value;
+	ifstream file(filename);
+	if (file.is_open()) {
+		while (getline(file,line)) {
+            value.push_back(line);
+		}
+		file.close();
+	} else {
+		cout << "Unable to open file" << endl;
+        value.push_back("Unable to open file");
+	}
+    return value;
+}
 list<string> file::read(string filepath,string filename) {
     string line;
     list<string> value;
