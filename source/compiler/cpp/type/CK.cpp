@@ -66,7 +66,7 @@ string TCK::aft(string line) {
     } else if (!strcmp(line.c_str(),"true") || !strcmp(line.c_str(),"false")) { //bool
         value = "bool";
     } else { //number
-        if (line.find(".") != std::string::npos && line.find("Array.") == std::string::npos) { //float
+        if (line.find(".") != std::string::npos && line.find("Array.") == std::string::npos && !TCK::strings(line)) { //float
             value = "float";
         } else {
             if (!TCK::strings(line)) { // int

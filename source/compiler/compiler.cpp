@@ -1,5 +1,7 @@
 #include "compiler.h"
 #include "./cpp/init/def.h"
+#include "./cpp/init/for.h"
+#include "./cpp/init/while.h"
 #include "./cpp/init/print.h"
 #include "./cpp/init/import.h"
 #include "./cpp/init/variable.h"
@@ -40,7 +42,7 @@ list<string> compiler::itr_line(list<string> file) {
             if (*Leading == CountLeadingSpaces(file_line_value)) {
                 file_line_value = "\n}\n"+file_line_value;
                 Leading = DEF_SCNumber.erase(Leading);
-                Variable_Name = {};
+                Variable_Name.clear();
             } else {
                 Leading++;
             }
@@ -48,6 +50,8 @@ list<string> compiler::itr_line(list<string> file) {
         file_line_value = CC::aft(file_line_value);
         string Spaces = file_line_value;
         file_line_value = _def::aft(file_line_value);
+        file_line_value = _for::aft(file_line_value);
+        file_line_value = _while::aft(file_line_value);
         if (strcmp(Spaces.c_str(),file_line_value.c_str())) {DEF_SCNumber.push_back(compiler::CountLeadingSpaces(Spaces));}
         file_line_value = _print::aft(file_line_value);
         file_line_value = _import::aft(file_line_value);

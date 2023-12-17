@@ -73,3 +73,17 @@ def int main():
     call[3] = 40      #배열 첫번째값을 40으로 지정합니다
     call[4] = 20      #배열 첫번째값을 20으로 지정합니다
     print(call[0],call[1],call[2],call[3],call[4]) #10 50 90 40 20
+
+
+# 08 - 반복문 선언하기
+def int main():
+    call = new int[5]
+    for i=0;i<sizeof(call);i++:
+        print(call[i])
+    #에러를 방지하려면 이라인은 비워주세요
+    return 0
+def int main():
+    while true:
+        break
+    #에러를 방지하려면 이라인은 비워주세요
+    return 0

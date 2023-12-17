@@ -15,17 +15,18 @@
 			]
 		},
 		"keywords": {
-			"name": "entity.name.class",
+			"name": "comment.line",
 			"begin": "#",
 			"end": "\n",
-			"patterns": [{"name": "comment.line","match": "\\\\."}]
+			"patterns": [{"name": "entity.name.class","match": "\\\\."}]
 		},
 		"reserved-words" : {
 			"patterns": [
 				{"name": "entity.name.class","match": "\\b(Array)\\b"},
+				{"name": "keyword.other","match": "\\b(\\:\\:|\\:)\\b"},
 				{"name": "keyword.other","match": "\\b(int|float|string|bool|void|char)\\b"},
-			    {"name": "entity.name.function.member.pcs","match": "\\b(print|main)\\b"},
-				{"name": "keyword.control.pcs","match": "\\b(if|else| and | or |not |import|return|def|new)\\b"},
+			    {"name": "entity.name.function.member.pcs","match": "\\b(print|main|sizeof|to_string|size)\\b"},
+				{"name": "keyword.control.pcs","match": "\\b(if|else| and | or |not |import|return|def|new|for|while)\\b"},
 				{"name": "keyword.other","match": "\\b(true|false)\\b"}
 		    ]
 		},

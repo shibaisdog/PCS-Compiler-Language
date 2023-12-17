@@ -51,5 +51,5 @@ int main(int argc,char* argv[]) {
     }
     return 0;
 }
-//g++ ./source/PCS.cpp ./source/CMR.cpp ./source/compiler/compiler.cpp ./source/compiler/cpp/init/def.cpp ./source/compiler/cpp/init/print.cpp ./source/compiler/cpp/init/import.cpp ./source/compiler/cpp/init/variable.cpp ./source/compiler/cpp/replace/array.cpp ./source/compiler/cpp/replace/comment.cpp ./source/compiler/cpp/replace/Fstring.cpp ./source/compiler/cpp/type/CK.cpp ./source/process/file.cpp ./source/process/mingw32.cpp ./source/setting/XML/xml.cpp -o pcs.exe -std=c++11
+//g++ ./source/PCS.cpp ./source/CMR.cpp ./source/compiler/compiler.cpp ./source/compiler/cpp/init/def.cpp ./source/compiler/cpp/init/for.cpp ./source/compiler/cpp/init/while.cpp ./source/compiler/cpp/init/print.cpp ./source/compiler/cpp/init/import.cpp ./source/compiler/cpp/init/variable.cpp ./source/compiler/cpp/replace/array.cpp ./source/compiler/cpp/replace/comment.cpp ./source/compiler/cpp/replace/Fstring.cpp ./source/compiler/cpp/type/CK.cpp ./source/process/file.cpp ./source/process/mingw32.cpp ./source/setting/XML/xml.cpp -o pcs.exe -std=c++11
 //pcs -p "C:\\PCS\\work" -f index.sp -o
