@@ -12,20 +12,34 @@
 #     L pcs -p "작업폴더경로" -f "작업파일"
 
 
-# 01 - 주석처리하기
+# 01 - trigraph
+#  Sequence | Replacement
+# -----------------------
+#    ??=          #
+#    ??(          [
+#    ??/          \
+#    ??)          ]
+#    ??'          &
+#    ??<          {
+#    ??!          |
+#    ??>          }
+#    ??-          ~
+
+
+# 02 - 주석처리하기
 # "#" 을 이용하면 주석처리를 할수있습니다
 
 
-# 02 - 파일 세팅하기
+# 03 - 파일 세팅하기
 def int main():
 
 
-# 03 - 모듈 불러오기
+# 04 - 모듈 불러오기
 import time.h # time.h 라는 이름의 모듈을 불러옵니다
 def int main():
 
 
-# 04 - 값 출력하기
+# 05 - 값 출력하기
 def int main():
     Int1 = 10
     Int2 = 20
@@ -34,7 +48,7 @@ def int main():
     print(Int1,Int2) #10 20
 
 
-# 05 - 변수 지정하기
+# 06 - 변수 지정하기
 def int main():
     Int = 10               #Int 라는 이름을 가진 int 변수를 지정하고 값은 10으로 지정합니다
     Float = 10.1           #Float 라는 이름을 가진 float 변수를 지정하고 값은 10.1으로 지정합니다
@@ -48,7 +62,7 @@ def int main():
     print(BO_false)        #0
 
 
-# 06 - 함수 선언하기
+# 07 - 함수 선언하기
 def <- 함수선언
 def <return 했을때 값 타입> <함수명>() :
 #예시
@@ -64,7 +78,7 @@ def int main():
     print(add(1,4))       #5
 
 
-# 07 - 배열 선언하기
+# 08 - 배열 선언하기
 def int main():
     call = new int[5] #call 이름을 가진 auto 변수에 배열 5개를 선언합니다
     call[0] = 10      #배열 첫번째값을 10으로 지정합니다
@@ -75,7 +89,7 @@ def int main():
     print(call[0],call[1],call[2],call[3],call[4]) #10 50 90 40 20
 
 
-# 08 - 반복문 선언하기
+# 09 - 반복문 선언하기
 def int main():
     call = new int[5]
     for i=0;i<sizeof(call);i++:
@@ -85,3 +99,28 @@ def int main():
     while true:
         break
     return 0
+
+
+# 10 - if 문 선언하기
+Bool_True = true
+Bool_False = false
+if Bool_True == Bool_True:
+    print("this is true")  #this is true
+else:
+    print("this is not work") #위에 if문이 실행되었으므로 무시됩니다
+
+if Bool_True == Bool_False:
+    print("this is not work") #거짓이므로 무시됩니다
+elif Bool_True == not Bool_False:
+    print("this is true")  #Bool_False(false) 가 not 논리연산자가 실행되었으므로 true 기 때문에 실행됩니다
+else:
+    print("this is not work") #위에 if문이 실행되었으므로 무시됩니다
+
+if Bool_True == Bool_False or Bool_True == not Bool_False:
+    print("this is true")  #Bool_True == Bool_False 는 거짓이지만 Bool_True == not Bool_False 가 true 이고 or 논리연산자 때문에 작동됩니다
+
+if Bool_True == Bool_False and Bool_True == not Bool_False:
+    print("this is not work")  #Bool_True == Bool_False 는 거짓이지만 Bool_True == not Bool_False 가 true 이고 and 논리연산자 때문에 무시됩니다
+
+if Bool_True != Bool_False:
+    print("this is true")  #this is true

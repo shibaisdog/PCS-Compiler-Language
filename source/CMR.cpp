@@ -35,8 +35,6 @@ void CMR::cpp_comfile(string Path,string Outs,string File) {
     system_clock::time_point start,finish;
     bool prints;
     std::istringstream(XML_::read("./source/setting/compiler.xml","log")) >> std::boolalpha >> prints;
-    int mod = stoi(XML_::read("./source/setting/compiler.xml","chcp"));
-    mingw32::chcp(mod);
     start = system_clock::now();
     if (prints) cout << "-------[STC -> C++]-------" << endl;
     list<string> value;

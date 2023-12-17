@@ -1,6 +1,7 @@
 #include "compiler.h"
 #include "./cpp/init/def.h"
 #include "./cpp/init/for.h"
+#include "./cpp/init/ifs.h"
 #include "./cpp/init/while.h"
 #include "./cpp/init/print.h"
 #include "./cpp/init/import.h"
@@ -8,6 +9,7 @@
 #include "./cpp/replace/array.h"
 #include "./cpp/replace/Fstring.h"
 #include "./cpp/replace/comment.h"
+#include "./cpp/replace/trigraph.h"
 using namespace std;
 int compiler::CountLeadingSpaces(string str) {
     int count = 0;
@@ -66,10 +68,12 @@ list<string> compiler::itr_line(list<string> file) {
             }
         }
         file_line_value = CC::aft(file_line_value);
+        file_line_value = CG::aft(file_line_value);
         string Spaces = file_line_value;
         file_line_value = _def::aft(file_line_value);
         if (strcmp(Spaces.c_str(),file_line_value.c_str())) {DEF_SCNumber.push_back(compiler::CountLeadingSpaces(Spaces));}
         Spaces = file_line_value;
+        file_line_value = _ifs::aft(file_line_value);
         file_line_value = _for::aft(file_line_value);
         file_line_value = _while::aft(file_line_value);
         if (strcmp(Spaces.c_str(),file_line_value.c_str())) {WHE_SCNumber.push_back(compiler::CountLeadingSpaces(Spaces));}

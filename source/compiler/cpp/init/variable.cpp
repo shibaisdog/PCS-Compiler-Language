@@ -21,6 +21,7 @@ string* _variable::aft(list<string> Variable_Name,string line) {
         type = TCK::aft(type);
         if (compiler::Count(Variable_Name,name)) {line = line.substr(0,sp)+name+" = "+value+";";}
         else if (name.find("for") != std::string::npos || name.find("while") != std::string::npos) {return ret;}
+        else if (name.find("if") != std::string::npos || name.find("elif") != std::string::npos || name.find("else") != std::string::npos) {return ret;}
         else if (name.find("[") != std::string::npos || name.find("]") != std::string::npos) {line = line.substr(0,sp)+name+" = "+value+";";}
         else {line = line.substr(0,sp)+type+" "+name+" = "+value+";";}
         ret[0] = line;
