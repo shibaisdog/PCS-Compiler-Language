@@ -80,10 +80,8 @@ def int main():
     call = new int[5]
     for i=0;i<sizeof(call);i++:
         print(call[i])
-    #에러를 방지하려면 이라인은 비워주세요
     return 0
 def int main():
     while true:
         break
-    #에러를 방지하려면 이라인은 비워주세요
     return 0
