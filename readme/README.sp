@@ -1,5 +1,7 @@
 # 00 - 세팅하기
 # --------------------------------
+# !현재지원 OS 는 윈도우 입니다
+# --------------------------------
 # !mingw32 가 먼저 깔려있어야합니다
 # C:\\ 부분에 PCS 를 압축을 풉니다
 # 환경변수를 path > C:\\PCS 를 추가합니다
@@ -10,6 +12,13 @@
 #     L pcs -p "작업폴더경로" -f "작업파일" -o
 #  L 만약 C++ 로만 컴파일 하고싶은경우 -o 부분을 없애시면 됩니다
 #     L pcs -p "작업폴더경로" -f "작업파일"
+# --------------------------------
+# PCS\\setting\\win-setup.ps1 을 실행하여 하이라이팅을 세팅합니다
+#  L 만약 실행이 안될시
+#    L 파워셀 (관리자권한) 실행 >   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned   > Y
+#  L 적용이 되었을시 이 파일이 자동으로 하이라이팅 됩니다
+#    L 만약에 VSC 를 키고 적용시켰을시에는 VSC 를 재부팅 해주세요
+
 
 
 # 01 - trigraph
@@ -110,25 +119,44 @@ def int main():
 
 
 # 10 - if 문 선언하기
-Bool_True = true
-Bool_False = false
-if Bool_True == Bool_True:
-    print("this is true")  #this is true
-else:
-    print("this is not work") #위에 if문이 실행되었으므로 무시됩니다
+def int main():
+    Bool_True = true
+    Bool_False = false
+    if Bool_True == Bool_True:
+        print("this is true")      #this is true
+    else:
+        print("this is not work")  #위에 if문이 실행되었으므로 무시됩니다
 
-if Bool_True == Bool_False:
-    print("this is not work") #거짓이므로 무시됩니다
-elif Bool_True == not Bool_False:
-    print("this is true")  #Bool_False(false) 가 not 논리연산자가 실행되었으므로 true 기 때문에 실행됩니다
-else:
-    print("this is not work") #위에 if문이 실행되었으므로 무시됩니다
+    if Bool_True == Bool_False:
+        print("this is not work")  #거짓이므로 무시됩니다
+    elif Bool_True == not Bool_False:
+        print("this is true")      #Bool_False(false) 가 not 논리연산자가 실행되었으므로 true 기 때문에 실행됩니다
+    else:
+        print("this is not work")  #위에 if문이 실행되었으므로 무시됩니다
 
-if Bool_True == Bool_False or Bool_True == not Bool_False:
-    print("this is true")  #Bool_True == Bool_False 는 거짓이지만 Bool_True == not Bool_False 가 true 이고 or 논리연산자 때문에 작동됩니다
+    if Bool_True == Bool_False or Bool_True == not Bool_False:
+        print("this is true")      #Bool_True == Bool_False 는 거짓이지만 Bool_True == not Bool_False 가 true 이고 or 논리연산자 때문에 작동됩니다
 
-if Bool_True == Bool_False and Bool_True == not Bool_False:
-    print("this is not work")  #Bool_True == Bool_False 는 거짓이지만 Bool_True == not Bool_False 가 true 이고 and 논리연산자 때문에 무시됩니다
+    if Bool_True == Bool_False and Bool_True == not Bool_False:
+        print("this is not work")  #Bool_True == Bool_False 는 거짓이지만 Bool_True == not Bool_False 가 true 이고 and 논리연산자 때문에 무시됩니다
 
-if Bool_True != Bool_False:
-    print("this is true")  #this is true
+    if Bool_True != Bool_False:
+        print("this is true")      #this is true
+    
+    if Bool_True != Bool_False:
+        pass                       #엔터기능이랑 똑같습니다 (아무 기능X)
+        print("this is work")      #pass 는 엔터기능이기 때문에 이 코드는 작동됩니다
+    else:
+        print("this is not work")
+
+
+# 11 - Fstring
+def int main():
+    text_1 = "Hello"
+    text_2 = "World"
+
+    f_String_1 = f"{text_1} {text_2}"
+    f_String_2 = "{text_1} {text_2}"
+
+    print(f_String_1) #Hello World
+    print(f_String_2) #{text_1} {text_2}

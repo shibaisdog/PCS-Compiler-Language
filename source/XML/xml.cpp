@@ -1,5 +1,5 @@
 #include "xml.h"
-#include "../../process/file.h"
+#include "../process/file.h"
 string XML_::read(string file,string value) {
     list<string> fp = file::NPread(file);
     list<string>::iterator line = fp.begin(); 

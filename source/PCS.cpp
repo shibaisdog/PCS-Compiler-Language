@@ -2,11 +2,11 @@
 #include <iostream>
 #include <list>
 #include "CMR.h"
-#include "./setting/XML/xml.h"
+#include "./XML/xml.h"
 using namespace std;
 int main(int argc,char* argv[]) {
     bool prints;
-    std::istringstream(XML_::read("./source/setting/compiler.xml","log")) >> std::boolalpha >> prints;
+    std::istringstream(XML_::read("./setting/compiler.xml","log")) >> std::boolalpha >> prints;
     if (prints) cout << "--------------------------" << endl;
     if (prints) cout << "argc     > " << argc << endl;
     int i;
@@ -21,7 +21,7 @@ int main(int argc,char* argv[]) {
     list<string> fileS;
     for (i=0;i<argc;i++) {
         if (!strcmp(argv[i],"-v") || !strcmp(argv[i],"--version")) {
-            string version = XML_::read("./source/setting/compiler.xml","version");
+            string version = XML_::read("./setting/compiler.xml","version");
             cout << version << endl;
             if (prints) cout << "--------------------------" << endl;
             return 2;
@@ -51,5 +51,5 @@ int main(int argc,char* argv[]) {
     }
     return 0;
 }
-//g++ ./source/PCS.cpp ./source/CMR.cpp ./source/compiler/compiler.cpp ./source/compiler/cpp/init/def.cpp ./source/compiler/cpp/init/for.cpp ./source/compiler/cpp/init/ifs.cpp ./source/compiler/cpp/init/while.cpp ./source/compiler/cpp/init/print.cpp ./source/compiler/cpp/init/import.cpp ./source/compiler/cpp/init/variable.cpp ./source/compiler/cpp/replace/array.cpp ./source/compiler/cpp/replace/comment.cpp ./source/compiler/cpp/replace/Fstring.cpp ./source/compiler/cpp/replace/trigraph.cpp ./source/compiler/cpp/type/CK.cpp ./source/process/file.cpp ./source/process/mingw32.cpp ./source/setting/XML/xml.cpp -o pcs.exe -std=c++11
+//g++ ./source/PCS.cpp ./source/CMR.cpp ./source/compiler/compiler.cpp ./source/compiler/cpp/init/def.cpp ./source/compiler/cpp/init/for.cpp ./source/compiler/cpp/init/ifs.cpp ./source/compiler/cpp/init/while.cpp ./source/compiler/cpp/init/print.cpp ./source/compiler/cpp/init/import.cpp ./source/compiler/cpp/init/variable.cpp ./source/compiler/cpp/replace/pass.cpp ./source/compiler/cpp/replace/array.cpp ./source/compiler/cpp/replace/comment.cpp ./source/compiler/cpp/replace/Fstring.cpp ./source/compiler/cpp/replace/trigraph.cpp ./source/compiler/cpp/type/CK.cpp ./source/process/file.cpp ./source/process/mingw32.cpp ./source/XML/xml.cpp -o pcs.exe -std=c++11
 //pcs -p "C:\\PCS\\work" -f index.sp -o

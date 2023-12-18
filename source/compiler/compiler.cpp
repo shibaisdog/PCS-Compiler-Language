@@ -6,6 +6,7 @@
 #include "./cpp/init/print.h"
 #include "./cpp/init/import.h"
 #include "./cpp/init/variable.h"
+#include "./cpp/replace/pass.h"
 #include "./cpp/replace/array.h"
 #include "./cpp/replace/Fstring.h"
 #include "./cpp/replace/comment.h"
@@ -24,18 +25,14 @@ int compiler::CountLeadingSpaces(string str) {
 }
 string compiler::EnterSpaces(int number) {
     string sp = "";
-    for (int i=0;i<number;i++) {
-        sp += " ";
-    }
+    for (int i=0;i<number;++i) {sp += " ";}
     return sp;
 }
 bool compiler::Count(list<string> Variable_Name,string name) {
     list<string>::iterator list = Variable_Name.begin(); 
-    for (list=Variable_Name.begin();list!=Variable_Name.end();list++) {
+    for (list=Variable_Name.begin();list!=Variable_Name.end();++list) {
         string listn(*list);
-        if (!strcmp(listn.c_str(),name.c_str())) {
-            return true;
-        }
+        if (!strcmp(listn.c_str(),name.c_str())) {return true;}
     }
     return false;
 }
@@ -45,7 +42,7 @@ list<string> compiler::itr_line(list<string> file) {
     list<int> WHE_SCNumber;
     list<string> Variable_Name;
     list<string>::iterator line = file.begin(); 
-    for (line=file.begin();line!=file.end();line++) {
+    for (line=file.begin();line!=file.end();++line) {
         list<string> after;
         string file_line_value(*line);
         list<int>::iterator Leading;
@@ -54,19 +51,16 @@ list<string> compiler::itr_line(list<string> file) {
                 after.push_back("\n}\n");
                 Leading = DEF_SCNumber.erase(Leading);
                 Variable_Name.clear();
-            } else {
-                Leading++;
-            }
+            } else {++Leading;}
         }
         list<int>::iterator RLeading;
         for (RLeading=WHE_SCNumber.begin();RLeading!=WHE_SCNumber.end();) {
-            if (*RLeading == compiler::CountLeadingSpaces(file_line_value) || *RLeading-4 == compiler::CountLeadingSpaces(file_line_value)) {
+            if (*RLeading >= compiler::CountLeadingSpaces(file_line_value)) {
                 after.push_back("\n"+compiler::EnterSpaces(*RLeading)+"}\n");
                 RLeading = WHE_SCNumber.erase(RLeading);
-            } else {
-                RLeading++;
-            }
+            } else {++RLeading;}
         }
+        file_line_value = CP::aft(file_line_value);
         file_line_value = CC::aft(file_line_value);
         file_line_value = CG::aft(file_line_value);
         string Spaces = file_line_value;
@@ -86,7 +80,7 @@ list<string> compiler::itr_line(list<string> file) {
         file_line_value = CA::aft(file_line_value);
         if (!file_line_value.empty() && file_line_value.back() != ';' && file_line_value.back() != '{' && file_line_value.back() != '}' && file_line_value.substr(0,8) != "#include") {file_line_value += ';';}
         list<string>::iterator afterline = after.begin();
-        for (afterline=after.begin();afterline!=after.end();afterline++) {
+        for (afterline=after.begin();afterline!=after.end();++afterline) {
             file_line_value = *afterline+file_line_value;
         }
         value.push_back(file_line_value);
