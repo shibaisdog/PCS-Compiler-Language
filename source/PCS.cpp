@@ -2,6 +2,7 @@
 #include <iostream>
 #include <list>
 #include "CMR.h"
+#include "./process/mingw32.h"
 #include "./XML/xml.h"
 using namespace std;
 int main(int argc,char* argv[]) {
@@ -49,7 +50,10 @@ int main(int argc,char* argv[]) {
         if (comfile_exe) {CMR::exe_comfile(pathS,OutsS,*line);} 
         else {CMR::cpp_comfile(pathS,OutsS,*line);}
     }
+    //if (OutsSC == 0) {OutsS = pathS + "out\\";}
+    //string EXE_File = regex_replace(File,regex(".cpp"),".exe");
+    //mingw32::files_comfile(fileS,)
     return 0;
 }
-//g++ ./source/PCS.cpp ./source/CMR.cpp ./source/compiler/compiler.cpp ./source/compiler/cpp/init/def.cpp ./source/compiler/cpp/init/for.cpp ./source/compiler/cpp/init/ifs.cpp ./source/compiler/cpp/init/while.cpp ./source/compiler/cpp/init/print.cpp ./source/compiler/cpp/init/import.cpp ./source/compiler/cpp/init/variable.cpp ./source/compiler/cpp/replace/pass.cpp ./source/compiler/cpp/replace/array.cpp ./source/compiler/cpp/replace/comment.cpp ./source/compiler/cpp/replace/Fstring.cpp ./source/compiler/cpp/replace/trigraph.cpp ./source/compiler/cpp/type/CK.cpp ./source/process/file.cpp ./source/process/mingw32.cpp ./source/XML/xml.cpp -o pcs.exe -std=c++11
+//g++ ./source/PCS.cpp ./source/CMR.cpp ./source/compiler/compiler.cpp ./source/compiler/cpp/init/def.cpp ./source/compiler/cpp/init/for.cpp ./source/compiler/cpp/init/ifs.cpp ./source/compiler/cpp/init/class.cpp ./source/compiler/cpp/init/while.cpp ./source/compiler/cpp/init/print.cpp ./source/compiler/cpp/init/import.cpp ./source/compiler/cpp/init/variable.cpp ./source/compiler/cpp/replace/pass.cpp ./source/compiler/cpp/replace/array.cpp ./source/compiler/cpp/replace/comment.cpp ./source/compiler/cpp/replace/Fstring.cpp ./source/compiler/cpp/replace/trigraph.cpp ./source/compiler/cpp/type/CK.cpp ./source/process/file.cpp ./source/process/mingw32.cpp ./source/XML/xml.cpp -o pcs.exe -std=c++11
 //pcs -p "C:\\PCS\\work" -f index.sp -o

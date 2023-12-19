@@ -72,9 +72,8 @@ def int main():
 
 
 # 07 - 함수 선언하기
-def <- 함수선언
-def <return 했을때 값 타입> <함수명>() :
-#예시
+#def <- 함수선언
+#def <return 했을때 값 타입> <함수명>() :
 def void pr_string():     #출력타입이 void 를 가진 pr_string 변수를 지정합니다
     print("Hello World")  #Hello World를 출력합니다
 def int main():
@@ -87,7 +86,69 @@ def int main():
     print(add(1,4))       #5
 
 
-# 08 - 배열 선언하기
+# 08 - Class 선언하기
+#class <- Class선언
+#class <클래스이름>:
+class _TEST_:
+    #def (함수선언) static <return 했을때 값 타입> <함수명>() :
+    def static void work():
+        i = 0
+        while true:
+            if i >= 100000000:
+                break
+            else:
+                i++
+def int main():
+    #클래스이름::함수이름()
+    _TEST_::work()
+
+
+import time.h
+import cstdlib
+class _TEST_:
+    def static int* Arr():
+        call = Array.int(5)
+        for i=0;i<=sizeof(call);i++:
+            call[i] = rand()
+        return call
+    def static void pit(int* call):
+        print(f"배열길이 : {to_string(sizeof(call))}")
+        for i=0;i<=sizeof(call);i++:
+            print(f"{to_string(i)}번째 값 : {to_string(call[i])}")
+def int main():
+    start = clock()
+    #START
+    index = _TEST_::Arr()
+    _TEST_::pit(index)   #배열길이 : 4
+                         #0번째 값 : 41
+                         #1번째 값 : 18467
+                         #2번째 값 : 6334
+                         #3번째 값 : 26500
+                         #4번째 값 : 19169
+                         #0ms
+    #END
+    end = clock()
+    ms_count = to_string((end - start))
+    print(f"{ms_count}ms")
+
+
+#--- 다른파일에서 클래스 불러오기---#
+#index.sp
+class _INDEX_:
+    def static void work():
+        i = 0
+        while true:
+            if i >= 100000000:
+                break
+            else:
+                i++
+#main.sp
+import index.cpp
+def int main():
+    _TEST_::work()
+
+
+# 09 - 배열 선언하기
 def int main():
     call = Array.int(5)    #call 이름을 가진 auto 변수에 배열 5개를 선언합니다
     call[0] = 10           #배열 첫번째값을 10으로 지정합니다
@@ -106,7 +167,7 @@ def int main():
     print(call[0],call[1],call[2],call[3],call[4]) #Hello World oh~ bye World
 
 
-# 09 - 반복문 선언하기
+# 10 - 반복문 선언하기
 def int main():
     call = Array.int(5)
     for i=0;i<sizeof(call);i++:
@@ -118,7 +179,7 @@ def int main():
     return 0
 
 
-# 10 - if 문 선언하기
+# 11 - if 문 선언하기
 def int main():
     Bool_True = true
     Bool_False = false
@@ -127,6 +188,7 @@ def int main():
     else:
         print("this is not work")  #위에 if문이 실행되었으므로 무시됩니다
 
+
     if Bool_True == Bool_False:
         print("this is not work")  #거짓이므로 무시됩니다
     elif Bool_True == not Bool_False:
@@ -134,15 +196,18 @@ def int main():
     else:
         print("this is not work")  #위에 if문이 실행되었으므로 무시됩니다
 
+
     if Bool_True == Bool_False or Bool_True == not Bool_False:
         print("this is true")      #Bool_True == Bool_False 는 거짓이지만 Bool_True == not Bool_False 가 true 이고 or 논리연산자 때문에 작동됩니다
 
     if Bool_True == Bool_False and Bool_True == not Bool_False:
         print("this is not work")  #Bool_True == Bool_False 는 거짓이지만 Bool_True == not Bool_False 가 true 이고 and 논리연산자 때문에 무시됩니다
 
+
     if Bool_True != Bool_False:
         print("this is true")      #this is true
     
+
     if Bool_True != Bool_False:
         pass                       #엔터기능이랑 똑같습니다 (아무 기능X)
         print("this is work")      #pass 는 엔터기능이기 때문에 이 코드는 작동됩니다
@@ -150,7 +215,7 @@ def int main():
         print("this is not work")
 
 
-# 11 - Fstring
+# 12 - Fstring
 def int main():
     text_1 = "Hello"
     text_2 = "World"

@@ -24,16 +24,16 @@
 			"patterns": [
 				{"name": "entity.name.class","match": "\\b(Array)\\b"},
 				{"name": "keyword.other","match": "\\b(\\:\\:|\\:)\\b"},
-				{"name": "keyword.other","match": "\\b(int|float|string|bool|void|char)\\b"},
+				{"name": "keyword.other","match": "\\b(int|float|string|bool|void|char|static)\\b"},
 			    {"name": "entity.name.function.member.pcs","match": "\\b(print|main|sizeof|to_string|size)\\b"},
-				{"name": "keyword.control.pcs","match": "\\b(if|elif|else| and | or |not |import|return|def|new|for|while|break|pass)\\b"},
+				{"name": "keyword.control.pcs","match": "\\b(if|elif|else| and | or |not |import|return|def|new|for|while|break|pass|class)\\b"},
 				{"name": "keyword.other","match": "\\b(true|false)\\b"}
 		    ]
 		},
 		"strings": {
 			"name": "string.quoted.double.pcs",
 			"begin": "\"|'",
-			"end": "\"|'|\n",
+			"end": "\"|'",
 			"patterns": [{"name": "constant.character.escape.pcs","match": "\\\\."}]
 		}
 	},

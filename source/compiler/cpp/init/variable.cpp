@@ -8,6 +8,9 @@ string* _variable::aft(list<string> Variable_Name,string line) {
     ret[1] = "<None>";
     string intext = line;
     int index = line.find("=");
+    int plusindex = line.find("+=");
+    int minusindex = line.find("-=");
+    if (plusindex != std::string::npos || minusindex != std::string::npos) {return ret;}
     if (index != std::string::npos && line.find("//") == std::string::npos) {
         int sp = 0;
         string name = line.substr(0,(line.find_last_of("=")));

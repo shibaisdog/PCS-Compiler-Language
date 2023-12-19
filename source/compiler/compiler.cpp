@@ -2,6 +2,7 @@
 #include "./cpp/init/def.h"
 #include "./cpp/init/for.h"
 #include "./cpp/init/ifs.h"
+#include "./cpp/init/class.h"
 #include "./cpp/init/while.h"
 #include "./cpp/init/print.h"
 #include "./cpp/init/import.h"
@@ -47,8 +48,8 @@ list<string> compiler::itr_line(list<string> file) {
         string file_line_value(*line);
         list<int>::iterator Leading;
         for (Leading=DEF_SCNumber.begin();Leading!=DEF_SCNumber.end();) {
-            if (*Leading == compiler::CountLeadingSpaces(file_line_value)) {
-                after.push_back("\n}\n");
+            if (*Leading >= compiler::CountLeadingSpaces(file_line_value)) {
+                after.push_back("\n"+compiler::EnterSpaces(*Leading)+"};\n");
                 Leading = DEF_SCNumber.erase(Leading);
                 Variable_Name.clear();
             } else {++Leading;}
@@ -65,6 +66,7 @@ list<string> compiler::itr_line(list<string> file) {
         file_line_value = CG::aft(file_line_value);
         string Spaces = file_line_value;
         file_line_value = _def::aft(file_line_value);
+        file_line_value = _class::aft(file_line_value);
         if (strcmp(Spaces.c_str(),file_line_value.c_str())) {DEF_SCNumber.push_back(compiler::CountLeadingSpaces(Spaces));}
         Spaces = file_line_value;
         file_line_value = _ifs::aft(file_line_value);
@@ -78,7 +80,7 @@ list<string> compiler::itr_line(list<string> file) {
         if (strcmp(Variable[1].c_str(),"<None>")) {Variable_Name.push_back(Variable[1]);}
         file_line_value = CF::aft(file_line_value);
         file_line_value = CA::aft(file_line_value);
-        if (!file_line_value.empty() && file_line_value.back() != ';' && file_line_value.back() != '{' && file_line_value.back() != '}' && file_line_value.substr(0,8) != "#include") {file_line_value += ';';}
+        if (!file_line_value.empty() && file_line_value.back() != ';' && file_line_value.back() != '{' && file_line_value.substr(0,8) != "#include") {file_line_value += ';';}
         list<string>::iterator afterline = after.begin();
         for (afterline=after.begin();afterline!=after.end();++afterline) {
             file_line_value = *afterline+file_line_value;
