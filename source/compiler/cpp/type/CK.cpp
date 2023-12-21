@@ -57,6 +57,12 @@ bool TCK::strings(string line) {
         line.find("Y") != std::string::npos ||
         line.find("Z") != std::string::npos
     ) {return true;}
+    else if (
+        line.find("{") != std::string::npos ||
+        line.find("}") != std::string::npos ||
+        line.find("[") != std::string::npos ||
+        line.find("]") != std::string::npos
+    ) {return true;}
     return false;
 }
 string TCK::aft(string line) {

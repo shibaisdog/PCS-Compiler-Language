@@ -13,29 +13,15 @@
 #include "./cpp/replace/comment.h"
 #include "./cpp/replace/trigraph.h"
 using namespace std;
+string compiler::EnterSpaces(int number) {return string(number, ' ');}
+bool compiler::Count(list<string> Variable_Name,string name) {return find(Variable_Name.begin(),Variable_Name.end(),name) != Variable_Name.end();}
 int compiler::CountLeadingSpaces(string str) {
     int count = 0;
     for (char c : str) {
-        if (std::isspace(c)) {
-            count++;
-        } else {
-            break;
-        }
+        if (std::isspace(c)) {count++;} 
+        else {break;}
     }
     return count;
-}
-string compiler::EnterSpaces(int number) {
-    string sp = "";
-    for (int i=0;i<number;++i) {sp += " ";}
-    return sp;
-}
-bool compiler::Count(list<string> Variable_Name,string name) {
-    list<string>::iterator list = Variable_Name.begin(); 
-    for (list=Variable_Name.begin();list!=Variable_Name.end();++list) {
-        string listn(*list);
-        if (!strcmp(listn.c_str(),name.c_str())) {return true;}
-    }
-    return false;
 }
 list<string> compiler::itr_line(list<string> file) {
     list<string> value;
@@ -67,24 +53,21 @@ list<string> compiler::itr_line(list<string> file) {
         string Spaces = file_line_value;
         file_line_value = _def::aft(file_line_value);
         file_line_value = _class::aft(file_line_value);
-        if (strcmp(Spaces.c_str(),file_line_value.c_str())) {DEF_SCNumber.push_back(compiler::CountLeadingSpaces(Spaces));}
+        if (Spaces != file_line_value) {DEF_SCNumber.push_back(compiler::CountLeadingSpaces(Spaces));}
         Spaces = file_line_value;
         file_line_value = _ifs::aft(file_line_value);
         file_line_value = _for::aft(file_line_value);
         file_line_value = _while::aft(file_line_value);
-        if (strcmp(Spaces.c_str(),file_line_value.c_str())) {WHE_SCNumber.push_back(compiler::CountLeadingSpaces(Spaces));}
+        if (Spaces != file_line_value) {WHE_SCNumber.push_back(compiler::CountLeadingSpaces(Spaces));}
         file_line_value = _print::aft(file_line_value);
         file_line_value = _import::aft(file_line_value);
         string* Variable = _variable::aft(Variable_Name,file_line_value);
         file_line_value = Variable[0];
-        if (strcmp(Variable[1].c_str(),"<None>")) {Variable_Name.push_back(Variable[1]);}
+        if (Variable[1] != "<None>") {Variable_Name.push_back(Variable[1]);}
         file_line_value = CF::aft(file_line_value);
         file_line_value = CA::aft(file_line_value);
         if (!file_line_value.empty() && file_line_value.back() != ';' && file_line_value.back() != '{' && file_line_value.substr(0,8) != "#include") {file_line_value += ';';}
-        list<string>::iterator afterline = after.begin();
-        for (afterline=after.begin();afterline!=after.end();++afterline) {
-            file_line_value = *afterline+file_line_value;
-        }
+        for (const auto& a : after) {file_line_value = a + file_line_value;}
         value.push_back(file_line_value);
     }
     if (!DEF_SCNumber.empty()) {value.push_back("\n}");}
