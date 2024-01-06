@@ -9,6 +9,7 @@
 #include "./cpp/init/variable.h"
 #include "./cpp/replace/pass.h"
 #include "./cpp/replace/array.h"
+#include "./cpp/replace/number.h"
 #include "./cpp/replace/Fstring.h"
 #include "./cpp/replace/comment.h"
 #include "./cpp/replace/trigraph.h"
@@ -50,6 +51,7 @@ list<string> compiler::itr_line(list<string> file) {
         file_line_value = CP::aft(file_line_value);
         file_line_value = CC::aft(file_line_value);
         file_line_value = CG::aft(file_line_value);
+        file_line_value = CNB::aft(file_line_value);
         string Spaces = file_line_value;
         file_line_value = _def::aft(file_line_value);
         file_line_value = _class::aft(file_line_value);

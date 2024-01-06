@@ -1,12 +1,12 @@
 #include "CMR.h"
 #include "./XML/xml.h"
 using namespace std;
-void CMR::exe_comfile(string Path,string Outs,string File) {
+void CMR::exe_comfile(string Path,string Outs,string File,string __debug__) {
     system_clock::time_point start,finish;
     bool prints;
-    std::istringstream(XML_::read("./setting/compiler.xml","log")) >> std::boolalpha >> prints;
-    int mod = stoi(XML_::read("./setting/compiler.xml","chcp"));
-    mingw32::chcp(mod);
+    std::istringstream(XML_::read("./compiler.xml","log")) >> std::boolalpha >> prints;
+    int mod = stoi(XML_::read("./compiler.xml","chcp"));
+    if (prints) mingw32::chcp(mod);
     start = system_clock::now();
     if (prints) cout << "-------[STC -> C++]-------" << endl;
     list<string> value;
@@ -21,7 +21,7 @@ void CMR::exe_comfile(string Path,string Outs,string File) {
     if (prints) cout << "COMFILER > " << (chrono::duration_cast<chrono::microseconds> (finish - start)).count() << "µs" << endl;
     start = system_clock::now();
     if (prints) cout << "-------[C++ -> EXE]-------" << endl;
-    mingw32::comfile(Outs+File,Outs+EXE_File);
+    mingw32::comfile(Outs,File,Outs+EXE_File,__debug__);
     finish = system_clock::now();
     if (prints) cout << (chrono::duration_cast<chrono::microseconds> (finish - start)).count() << "µs" << endl;
     if (prints) cout << "--------[RUN CODE]--------" << endl;
@@ -34,7 +34,7 @@ void CMR::exe_comfile(string Path,string Outs,string File) {
 void CMR::cpp_comfile(string Path,string Outs,string File) {
     system_clock::time_point start,finish;
     bool prints;
-    std::istringstream(XML_::read("./setting/compiler.xml","log")) >> std::boolalpha >> prints;
+    std::istringstream(XML_::read("./compiler.xml","log")) >> std::boolalpha >> prints;
     start = system_clock::now();
     if (prints) cout << "-------[STC -> C++]-------" << endl;
     list<string> value;

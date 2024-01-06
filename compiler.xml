@@ -1,7 +1,7 @@
 <!-- Compiler MOD -->
 <log>false</log>
 <chcp>65001</chcp>
-<version>v23.12.21</version>
+<version>v24.01.06</version>
 <!--  Supported   -->
 <linux>false</linux>
 <window>true</window>

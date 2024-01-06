@@ -40,16 +40,16 @@
 
 
 # 03 - 파일 세팅하기
-def int main():
+def main():
 
 
 # 04 - 모듈 불러오기
 import time.h # time.h 라는 이름의 모듈을 불러옵니다
-def int main():
+def main():
 
 
 # 05 - 값 출력하기
-def int main():
+def main():
     Int1 = 10
     Int2 = 20
     print(Int1) #10
@@ -58,7 +58,7 @@ def int main():
 
 
 # 06 - 변수 지정하기
-def int main():
+def main():
     Int = 10               #Int 라는 이름을 가진 int 변수를 지정하고 값은 10으로 지정합니다
     Float = 10.1           #Float 라는 이름을 가진 float 변수를 지정하고 값은 10.1으로 지정합니다
     String = "Hello World" #String 라는 이름을 가진 string 변수를 지정하고 값은 Hello World으로 지정합니다
@@ -76,13 +76,13 @@ def int main():
 #def <return 했을때 값 타입> <함수명>() :
 def void pr_string():     #출력타입이 void 를 가진 pr_string 변수를 지정합니다
     print("Hello World")  #Hello World를 출력합니다
-def int main():
+def main():
     pr_string()           #Hello World
 
 
 def int add(int a,int b): #출력타입이 int 를 가진 add 변수를 지정합니다 이때 인자값은 a 랑 b 를 받는데 각각 타입은 int,int 입니다
     return a + b          #a랑b값을 받은뒤에 더한뒤에 return
-def int main():
+def main():
     print(add(1,4))       #5
 
 
@@ -94,11 +94,11 @@ class _TEST_:
     def static void work():
         i = 0
         while true:
-            if i >= 100000000:
+            if i >= 100_000_000:
                 break
             else:
                 i++
-def int main():
+def main():
     #클래스이름::함수이름()
     _TEST_::work()
 
@@ -115,7 +115,7 @@ class _TEST_:
         print(f"배열길이 : {to_string(sizeof(call))}")
         for i=0;i<=sizeof(call);i++:
             print(f"{to_string(i)}번째 값 : {to_string(call[i])}")
-def int main():
+def main():
     start = clock()
     #START
     index = _TEST_::Arr()
@@ -125,11 +125,10 @@ def int main():
                          #2번째 값 : 6334
                          #3번째 값 : 26500
                          #4번째 값 : 19169
-                         #0ms
     #END
     end = clock()
     ms_count = to_string((end - start))
-    print(f"{ms_count}ms")
+    print(f"{ms_count}ms") #0ms
 
 
 #--- 다른파일에서 클래스 불러오기---#
@@ -138,18 +137,18 @@ class _INDEX_:
     def static void work():
         i = 0
         while true:
-            if i >= 100000000:
+            if i >= 100_000_000:
                 break
             else:
                 i++
 #main.sp
 import index.cpp
-def int main():
+def main():
     _TEST_::work()
 
 
 # 09 - 배열 선언하기
-def int main():
+def main():
     call = Array.int(5)    #call 이름을 가진 auto 변수에 배열 5개를 선언합니다
     call[0] = 10           #배열 첫번째값을 10으로 지정합니다
     call[1] = 50           #배열 첫번째값을 50으로 지정합니다
@@ -168,19 +167,19 @@ def int main():
 
 
 # 10 - 반복문 선언하기
-def int main():
+def main():
     call = Array.int(5)
     for i=0;i<sizeof(call);i++:
         print(call[i])
     return 0
-def int main():
+def main():
     while true:
         break
     return 0
 
 
 # 11 - if 문 선언하기
-def int main():
+def main():
     Bool_True = true
     Bool_False = false
     if Bool_True == Bool_True:
@@ -216,7 +215,7 @@ def int main():
 
 
 # 12 - Fstring
-def int main():
+def main():
     text_1 = "Hello"
     text_2 = "World"
 
